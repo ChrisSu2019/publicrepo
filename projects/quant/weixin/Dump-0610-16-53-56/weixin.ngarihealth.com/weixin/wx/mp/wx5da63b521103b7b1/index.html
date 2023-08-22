@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no" />
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .flex-justify,
+        .flex-center,
+        .flex-around,
+        .flex-start,
+        .flex-end {
+            display: -webkit-box;
+            -webkit-box-pack: justify;
+            -webkit-box-align: center;
+
+            display: -webkit-flex;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: center;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .flex-center {
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+        }
+
+        .flex-start {
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            justify-content: flex-start;
+        }
+
+        .flex-around {
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+        }
+
+        .flex-top {
+            -webkit-box-align: start !important;
+            -webkit-align-items: flex-start !important;
+            align-items: flex-start !important;
+        }
+
+        .flex-end {
+            -webkit-box-pack: end;
+            -webkit-justify-content: flex-end;
+            justify-content: flex-end;
+        }
+
+        .defaultBg,
+        .template-1,
+        .template-2,
+        .template-3 {
+            text-align: center;
+            display: none;
+        }
+
+        /*模版一*/
+        .idx-full-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .img-full-screen {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .img-auto {
+            display: inline-block;
+            width: auto;
+            max-width: 100%;
+        }
+
+        /*模版二*/
+        .idxBox {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+
+        .idxBg {
+            height: 100%;
+            background-color: #fff;
+            -webkit-animation-duration: 450ms;
+        }
+
+        .template2-top,
+        .template2-bottom,
+        .template3-top,
+        .template3-middle,
+        .template3-bottom {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+
+        .template2-top {
+            top: 8%;
+        }
+
+        .template2-top img {
+            width: 61%;
+        }
+
+        .template2-bottom {
+            bottom: 6%;
+        }
+
+        .template2-bottom img {
+            display: block;
+            width: 41%;
+            margin: 0 auto;
+        }
+
+        /*模版三*/
+        .template3-top {
+            top: 8%;
+        }
+
+        .template3-top img {
+            width: 61%;
+        }
+
+        .template3-middle {
+            top: 30%;
+        }
+
+        .template3-middle img {
+            width: 61%;
+        }
+
+        .template3-bottom {
+            bottom: 6%;
+        }
+
+        .template3-bottom img {
+            width: 41%;
+            margin: 0 auto;
+        }
+
+        .idxBox {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+        }
+
+
+        .idxBg {
+            height: 100%;
+            background-color: #fff;
+            -webkit-animation-duration: 450ms;
+        }
+
+        .idxBg .picture {
+            top: 64px;
+        }
+
+        .idxBg .picture img {
+            width: 256px;
+            height: 200px;
+        }
+
+        .idxBg .logoPos {
+            bottom: 44px;
+        }
+
+        /*.idxBg .logo{display:inline-block;}*/
+        .idxBg .logo .u-tip {
+            font-size: 13px;
+            color: #595757;
+            text-align: center;
+            font-family: "Microsoft YaHei";
+            font-weight: 400;
+            line-height: 1.5;
+            white-space: nowrap;
+        }
+
+        .idxBg .logo img {
+            display: block;
+            width: 110px;
+            height: 49px;
+            margin: 0 auto
+        }
+
+        .countdown {
+            width: 45px;
+            height: 45px;
+            border: .5px solid #BDBDBD;
+            border-radius: 45px;
+            position: absolute;
+            z-index: 1;
+            line-height: 45px;
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 16px;
+            top: 10px;
+            right: 10px;
+            display: none;
+        }
+
+        .join-portal-btn {
+            border: .5px solid #BCBCBC;
+            border-radius: 45px;
+            width: 245px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            background: #FCFCFC43;
+            position: absolute;
+            bottom: 90px;
+            z-index: 1;
+            left: 50%;
+            transform: translate(-50%, 0);
+            display: none;
+        }
+
+        .root-app {
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #fff;
+            visibility: hidden;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script type="text/javascript" src="https://weixinnode.ngarihealth.com/weixin/ngari/boot-9eb3e527.js"></script>
+    <script type="text/javascript" src="https://weixinnode.ngarihealth.com/weixin/main/js/entry.f04aefbb.js"></script>
+    <script type="text/javascript" src="https://weixinnode.ngarihealth.com/weixin/eh/wx/health/index-41fa1366.js"></script>
+</head>
+
+<body ng-controller="rootController" style="font:normal 16px/20px 'Microsoft YaHei'">
+    <div id="startup" class="idxBg">
+        <div class="countdown">秒</div>
+        <div class="join-portal-btn">进入首页</div>
+
+        <!--模版一-->
+        <div class="template-1">
+            <div class="idx-full-page flex-center">
+                <img class="img-auto">
+            </div>
+        </div>
+        <!--模版二-->
+        <div class="template-2">
+            <div class="template2-top">
+                <img class="img-top">
+            </div>
+            <div class="template2-bottom">
+                <img class="img-bottom">
+            </div>
+        </div>
+        <!--模版三-->
+        <div class="template-3">
+            <div class="template3-top">
+                <img class="img-top">
+            </div>
+            <div class="template3-middle">
+                <img class="img-middle">
+            </div>
+            <div class="template3-bottom">
+                <img class="img-bottom">
+            </div>
+        </div>
+
+        <div class="defaultBg">
+            <div class="idxBox picture">
+                <img id="startPageImg" >
+            </div>
+            <div class="idxBox logoPos">
+                <div class="logo">
+                    <img id="startLogoImg" >
+                    <!--            <div class="u-tip">您身边的健康管家</div>-->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="root_app" class="root-app"></div>
+</body>
+<script>
+    (function(){
+        if($env && $env.resourcesHome != null){
+            document.getElementById('startPageImg').setAttribute('src', $env.resourcesHome + 'images/start_page_index.gif');
+            document.getElementById('startLogoImg').setAttribute('src', $env.resourcesHome + 'images/start_logo_index.png')
+        }
+    })()
+</script>
+</html>

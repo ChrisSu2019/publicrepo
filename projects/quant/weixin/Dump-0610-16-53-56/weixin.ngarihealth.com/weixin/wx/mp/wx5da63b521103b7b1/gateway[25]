@@ -1,0 +1,1 @@
+{"code":200,"body":{"waitPayDescription":"请准时于就诊当天前往医院门诊就诊。","refundFailDescription":"由于付款时间已过，取号失败，请另行预约，已支付费用1-7个工作日退回原账户","callNumBeyondDistanceInfo":"当前暂不能签到，请在医院范围内进行签到哦～签到成功后进入叫号对列，可在线查看叫号。","appointAutoPay":[],"canCheckInDistinceRange":-1,"healthCardInstructions":"此码可用于就诊、领取药品、打印报告等场景"}}
